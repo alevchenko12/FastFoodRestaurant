@@ -1,0 +1,11 @@
+CREATE TABLE Orders
+(
+    OrderId INT PRIMARY KEY IDENTITY(1, 1),
+    ClientId INT NOT NULL,
+	OrderDate DATETIME DEFAULT GETDATE() NOT NULL,
+	ShipAddress VARCHAR(90),
+	Discount DECIMAL DEFAULT 0.0,
+	ShipOpt BIT  DEFAULT 0 NOT NULL,
+	PayStatus BIT DEFAULT 0,
+    FOREIGN KEY (ClientId) REFERENCES Clients(ClientId)
+);
